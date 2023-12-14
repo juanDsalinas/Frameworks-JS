@@ -1,0 +1,29 @@
+npm init -y - crea el package.json de nuestro proyecto
+npm install prisma --save-dev - instalar prisma en nuestro proyecto
+npx prisma init - iniciar Primsa
+npx prisma migrate dev - migrar las tablas que creamos con el ORM(Prisma)
+npm install express - instalar express en nuestro proyecto 
+
+Actualmente se utiliza mas export e import que Require, para eso tenemos 
+que modificar el package.json, debajo de la llave main, agregamos lo siguiente:
+"type": "module",
+
+Utilizamos Nodemon para no tener que resetear a cada rato es servidor
+npm i nodemon -D
+
+Ademas reemplazamos esto:
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+por esto:
+"scripts": {
+    "dev": "nodemon src/index.js"
+  }
+
+ejecutamos este codigo en la terminal - npm run dev
+
+Notas - cada importacion creada por nosotros debe terminar con .js
+
+npx prisma studio - nos desplega un GUI como SGBD
+
+
