@@ -1,0 +1,7 @@
+npm i express - instalar express
+en este proyecto utilizamos los ies-modules de ECMAScript6
+en el package json utilizamos el "type":"module"
+
+
+
+
