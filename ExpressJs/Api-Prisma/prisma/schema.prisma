@@ -27,3 +27,9 @@ model Category {
   // Relacion de uno a muchos desde category hacia product
   products Product[]
 }
+
+model Cart{
+  idCart Int @id @default(autoincrement())
+  idProductFk Int 
+  idUserFK Int @default(1)
+}

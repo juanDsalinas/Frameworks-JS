@@ -1,52 +1,74 @@
-import { useFetch } from './useFetch';
+// import { useFetch } from './useFetch';
 import {useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
-  const [content, setContent] = useState(1);
-  const [url, setUrl] = useState(`https://rickandmortyapi.com/api/character/?page=${content}`)
-  const {data, loading, error, fetchData,handleCancelRequest} = useFetch(url)
-  // const [clicks, setClicks] = useState(0);
+  const [producto, setProducto] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  
+  useEffect(() => {
+    // Define una función asíncrona para realizar la solicitud a la API
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/Categories`);
+        const data = await response.json();
+        console.log(data);
+        setCharacters(data);
+      } catch (error) {
+        console.error('Error al obtener datos:', error);
+      }
+    };
 
+    // Llama a la función de solicitud cada vez que 'content' cambia
+    fetchData();
+  }, []); // El efecto se ejecutará cuando 'content' cambie
 
   function changeUrl() {
     // Cambiar 'content' al siguiente valor
     setContent((prevContent) => prevContent + 1);
   }
 
+  function lastUrl(){
+    setContent((prevContent) => prevContent -1);
+  }
 
-  useEffect(() => {
-    // Cuando cambia 'content', actualiza la URL y realiza la solicitud
-    setUrl(`https://rickandmortyapi.com/api/character/?page=${content}`);
-    fetchData();
+  function buscar(id){
+    const encontrado = characters.find((character)=> character.id === id);
+    setProducto(encontrado.products);
+    console.log(producto);
+    console.log("PASO DE BUSCAR");
+  }
 
-    // Limpiar efecto al desmontar el componente
-    return () => handleCancelRequest();
-  }, [content, fetchData, handleCancelRequest]);
+  function hello(id){
+    console.log(`Entro ${id}`);
+  }
 
-
-
-  // https://rickandmortyapi.com/api/character/?page=2
-
-  console.log(data);
-  console.log(content);
   return (
     <div className='App'>
-      <h1>Fetch Rick And Morty Api</h1>
-      {/* <button onClick={changeUrl(2)}>Previous</button> */}
-      <button onClick={handleCancelRequest}>Cancel Request</button>
-      <div className='card'>
-        <ul>
-          {error && <li>Error: {error}</li>}
-          {loading && <li>Loading...</li>}
-          {data?.results.map((character) => (
-            <li key={character.id}>{character.name}</li>
-          ))}
-        </ul>
-      </div>
-      <button onClick={changeUrl}>Next</button>
+    <div className='header'>
+      <h1>Categories</h1>
+      <div className='cart'></div>
     </div>
+    <div className='categ'>
+    {characters.map((character)=>(
+        <button onClick={() => buscar(character.id)} key={character.id} className='nombres'>{character.name}</button>
+    ))}
+    </div><br/>
+    <p>Productos:</p>
+    <div className='productos'>
+          {
+            producto.length > 0 ? (
+            <ul>{producto.map((product)=>(<li key={product.id}>{product.name}</li>))}</ul>)
+            :(
+              <span>No hay productos Disponibles</span>
+            )
+          }
+    </div> 
+          {/* {character.products.map((product)=>(<li>{product.name}</li>))} */}
+  
+    
+  </div>
   )
 }
 
-export default App
+export default App;

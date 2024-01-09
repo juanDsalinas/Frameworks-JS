@@ -69,8 +69,4 @@ router.put('/Products/:id', async (req, res)=>{
     res.send({"status":200,"message":"Producto actualizado Satisfactoriamente"});
 })
 
-
-
-
-
 export default router;
