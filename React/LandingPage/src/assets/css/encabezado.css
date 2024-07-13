@@ -1,0 +1,148 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+.Encabezado {
+    width:100vw;
+    height:12vh;
+    background-color:#ccc;
+}
+
+.Landing-Header{
+    width:100%;
+    height:100%;
+    /* background-color:red; */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.Landing-Header > ul{
+    width:100%;
+    height:100%;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:0 10%;
+}
+
+.Landing-Header > ul > li > .Ham-Bar > i{
+    font-size:20px;
+    color:#000;
+    /* background-color:red; */
+}
+
+.Landing-Header > ul > li > .Landing-Logo{
+    width:120px;
+}
+
+.Landing-Header > ul > .Landing-Search > div{
+    padding:5px;
+    /* background-color:red; */
+    position:relative;
+}
+
+/* Input Desactivado Inicialmente */
+.Landing-Header > ul > .Landing-Search > div > .Landing-input{
+    padding:5px 20px 5px 5px;
+    display:none;
+    /* transition:10s; */
+}
+
+.Landing-input-activate:focus {
+    outline-width: 0;
+    padding:4px;
+}  
+
+/* Input Activado */
+.Landing-Header > ul > .Landing-Search > div > .Landing-input-activate{
+    padding:5px 20px 5px 5px;
+    display:block;
+    border:none;
+    border-radius:5px;
+}
+
+.Landing-Header > ul > .Landing-Search > div > i{
+    position:absolute;
+    /* Alto de la lupa */
+    top:30%;
+    /* La posicion donde esta se encuentra */
+    left:88%;
+    cursor: pointer;
+}
+
+/* Section Shoe */
+.Section-Shoe{
+    width:100vw;
+    height:80vh;
+    background-color:#000;
+    display:flex;
+    /* flex-direction:column; */
+    padding:3% 12%;
+}
+
+.Section-Shoe-text{
+    width:50%;
+    height:100%;
+    background-color:green;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Titulo del ZAPATO */
+.Section-Shoe-text >.Section-Shoe-text-1{
+    background-color:blue;
+    width:100%;
+    height:50%;
+    /* text-align:center; */
+}
+
+.Section-Shoe-text >.Section-Shoe-text-1 > h1{
+    margin-top:22%;
+    font-size:40px;
+    color:red;
+}
+
+.Section-Shoe-text >.Section-Shoe-text-1 > .titulo-color{
+    margin-top:22%;
+    font-size:40px;
+    color:blue;
+}
+
+
+.Section-Shoe-text >.Section-Shoe-text-1 > h2{
+    font-size:32px;
+}
+
+
+
+
+.Section-Shoe-addCard > a{
+    width:30%;
+    padding:10px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    border-radius:25px;
+    text-decoration:none;
+    color:#ffffff;
+    background-color:red;
+    text-align:center;
+    transition:.6s;
+}
+
+.Section-Shoe-addCard > a:hover{
+    background-color:rgba(255, 0, 0, 0.902);
+}
+
+/* Image of Shoes */
+.Section-Shoe-image{
+    width:50%;
+    height:100%;
+    background-color:yellow;
+
+}
